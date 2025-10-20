@@ -1,0 +1,114 @@
+
+#######################################################################
+Please cite the following paper when using nnU-Net:
+Isensee, F., Jaeger, P. F., Kohl, S. A., Petersen, J., & Maier-Hein, K. H. (2021). nnU-Net: a self-configuring method for deep learning-based biomedical image segmentation. Nature methods, 18(2), 203-211.
+#######################################################################
+ 
+2025-10-19 09:50:41.564644: Using torch.compile... 
+2025-10-19 09:50:43.697142: do_dummy_2d_data_aug: False 
+
+This is the configuration used by this training:
+Configuration name: 3d_fullres
+ {'data_identifier': 'nnUNetPlans_3d_fullres', 'preprocessor_name': 'DefaultPreprocessor', 'batch_size': 2, 'patch_size': [128, 128, 128], 'median_image_size_in_voxels': [505.5, 512.0, 512.0], 'spacing': [0.80860375, 0.80859375, 0.80859375], 'normalization_schemes': ['CTNormalization'], 'use_mask_for_norm': [False], 'resampling_fn_data': 'resample_data_or_seg_to_shape', 'resampling_fn_seg': 'resample_data_or_seg_to_shape', 'resampling_fn_data_kwargs': {'is_seg': False, 'order': 3, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_seg_kwargs': {'is_seg': True, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'resampling_fn_probabilities': 'resample_data_or_seg_to_shape', 'resampling_fn_probabilities_kwargs': {'is_seg': False, 'order': 1, 'order_z': 0, 'force_separate_z': None}, 'architecture': {'network_class_name': 'dynamic_network_architectures.architectures.unet.ResidualEncoderUNet', 'arch_kwargs': {'n_stages': 6, 'features_per_stage': [32, 64, 128, 256, 320, 320], 'conv_op': 'torch.nn.modules.conv.Conv3d', 'kernel_sizes': [[3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3], [3, 3, 3]], 'strides': [[1, 1, 1], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2], [2, 2, 2]], 'n_blocks_per_stage': [1, 3, 4, 6, 6, 6], 'n_conv_per_stage_decoder': [1, 1, 1, 1, 1], 'conv_bias': True, 'norm_op': 'torch.nn.modules.instancenorm.InstanceNorm3d', 'norm_op_kwargs': {'eps': 1e-05, 'affine': True}, 'dropout_op': None, 'dropout_op_kwargs': None, 'nonlin': 'torch.nn.LeakyReLU', 'nonlin_kwargs': {'inplace': True}}, '_kw_requires_import': ['conv_op', 'norm_op', 'dropout_op', 'nonlin']}, 'batch_dice': True} 
+ 
+These are the global plan.json settings:
+ {'dataset_name': 'Dataset500_KiTS2023', 'plans_name': 'nnUNetResEncUNetMPlans', 'original_median_spacing_after_transp': [3.0, 0.80859375, 0.80859375], 'original_median_shape_after_transp': [108, 512, 512], 'image_reader_writer': 'SimpleITKIO', 'transpose_forward': [2, 0, 1], 'transpose_backward': [1, 2, 0], 'experiment_planner_used': 'nnUNetPlannerResEncM', 'label_manager': 'LabelManager', 'foreground_intensity_properties_per_channel': {'0': {'max': 2553.0, 'mean': 120.14479064941406, 'median': 121.0, 'min': -277.0, 'percentile_00_5': -53.0, 'percentile_99_5': 300.0, 'std': 75.40593719482422}}} 
+ 
+2025-10-19 09:50:45.550851: Unable to plot network architecture: nnUNet_compile is enabled! 
+2025-10-19 09:50:45.618590:  
+2025-10-19 09:50:45.618942: Epoch 0 
+2025-10-19 09:50:45.619271: Current learning rate: 0.01 
+2025-10-19 09:57:46.931557: train_loss 0.2689 
+2025-10-19 09:57:46.931855: val_loss 0.1334 
+2025-10-19 09:57:46.932009: Pseudo dice [0.4168, 0.0, 0.0] 
+2025-10-19 09:57:46.932219: Epoch time: 421.33 s 
+2025-10-19 09:57:46.932416: Yayy! New best EMA pseudo Dice: 0.1389 
+2025-10-19 09:57:49.531765:  
+2025-10-19 09:57:49.532134: Epoch 1 
+2025-10-19 09:57:49.532306: Current learning rate: 0.0091 
+2025-10-19 10:02:02.947152: train_loss 0.1031 
+2025-10-19 10:02:02.947503: val_loss 0.0171 
+2025-10-19 10:02:02.947698: Pseudo dice [0.694, 0.0, 0.0] 
+2025-10-19 10:02:02.947897: Epoch time: 253.42 s 
+2025-10-19 10:02:02.948040: Yayy! New best EMA pseudo Dice: 0.1482 
+2025-10-19 10:02:06.597716:  
+2025-10-19 10:02:06.598071: Epoch 2 
+2025-10-19 10:02:06.598262: Current learning rate: 0.00818 
+2025-10-19 10:06:19.801222: train_loss 0.0127 
+2025-10-19 10:06:19.801730: val_loss -0.0668 
+2025-10-19 10:06:19.801957: Pseudo dice [0.7187, 0.0001, 0.0] 
+2025-10-19 10:06:19.802169: Epoch time: 253.21 s 
+2025-10-19 10:06:19.802334: Yayy! New best EMA pseudo Dice: 0.1573 
+2025-10-19 10:06:23.391388:  
+2025-10-19 10:06:23.391719: Epoch 3 
+2025-10-19 10:06:23.391928: Current learning rate: 0.00725 
+2025-10-19 10:10:36.301217: train_loss -0.0784 
+2025-10-19 10:10:36.301602: val_loss -0.1172 
+2025-10-19 10:10:36.301774: Pseudo dice [0.7918, 0.0309, 0.0] 
+2025-10-19 10:10:36.301893: Epoch time: 252.91 s 
+2025-10-19 10:10:36.301988: Yayy! New best EMA pseudo Dice: 0.169 
+2025-10-19 10:10:39.954697:  
+2025-10-19 10:10:39.955096: Epoch 4 
+2025-10-19 10:10:39.955302: Current learning rate: 0.00631 
+2025-10-19 10:14:52.874916: train_loss -0.1103 
+2025-10-19 10:14:52.875299: val_loss -0.1276 
+2025-10-19 10:14:52.875582: Pseudo dice [0.871, 0.0185, 0.0] 
+2025-10-19 10:14:52.875784: Epoch time: 252.92 s 
+2025-10-19 10:14:52.875995: Yayy! New best EMA pseudo Dice: 0.1818 
+2025-10-19 10:14:56.680907:  
+2025-10-19 10:14:56.681295: Epoch 5 
+2025-10-19 10:14:56.681516: Current learning rate: 0.00536 
+2025-10-19 10:19:09.049882: train_loss -0.1628 
+2025-10-19 10:19:09.050226: val_loss -0.2051 
+2025-10-19 10:19:09.050401: Pseudo dice [0.8597, 0.3423, 0.0] 
+2025-10-19 10:19:09.050588: Epoch time: 252.37 s 
+2025-10-19 10:19:09.050717: Yayy! New best EMA pseudo Dice: 0.2037 
+2025-10-19 10:19:12.541811:  
+2025-10-19 10:19:12.542141: Epoch 6 
+2025-10-19 10:19:12.542340: Current learning rate: 0.00438 
+2025-10-19 10:23:25.054150: train_loss -0.1888 
+2025-10-19 10:23:25.054530: val_loss -0.1816 
+2025-10-19 10:23:25.054750: Pseudo dice [0.8605, 0.2644, 0.0] 
+2025-10-19 10:23:25.054872: Epoch time: 252.52 s 
+2025-10-19 10:23:25.055004: Yayy! New best EMA pseudo Dice: 0.2208 
+2025-10-19 10:23:28.706931:  
+2025-10-19 10:23:28.707314: Epoch 7 
+2025-10-19 10:23:28.707506: Current learning rate: 0.00338 
+2025-10-19 10:27:41.078449: train_loss -0.2244 
+2025-10-19 10:27:41.078826: val_loss -0.249 
+2025-10-19 10:27:41.079131: Pseudo dice [0.8814, 0.4941, 0.0] 
+2025-10-19 10:27:41.079279: Epoch time: 252.37 s 
+2025-10-19 10:27:41.079391: Yayy! New best EMA pseudo Dice: 0.2446 
+2025-10-19 10:27:44.757210:  
+2025-10-19 10:27:44.757627: Epoch 8 
+2025-10-19 10:27:44.757821: Current learning rate: 0.00235 
+2025-10-19 10:31:58.158719: train_loss -0.215 
+2025-10-19 10:31:58.159067: val_loss -0.2437 
+2025-10-19 10:31:58.159242: Pseudo dice [0.9116, 0.5294, 0.0] 
+2025-10-19 10:31:58.159399: Epoch time: 253.4 s 
+2025-10-19 10:31:58.159561: Yayy! New best EMA pseudo Dice: 0.2681 
+2025-10-19 10:32:01.914902:  
+2025-10-19 10:32:01.915230: Epoch 9 
+2025-10-19 10:32:01.915427: Current learning rate: 0.00126 
+2025-10-19 10:36:14.955954: train_loss -0.265 
+2025-10-19 10:36:14.956264: val_loss -0.2814 
+2025-10-19 10:36:14.956448: Pseudo dice [0.9064, 0.5867, 0.0] 
+2025-10-19 10:36:14.956623: Epoch time: 253.04 s 
+2025-10-19 10:36:14.956744: Yayy! New best EMA pseudo Dice: 0.2911 
+2025-10-19 10:36:19.791106: Training done. 
+2025-10-19 10:36:19.866123: predicting imaging_000 
+2025-10-19 10:36:22.672823: imaging_000, shape torch.Size([1, 378, 582, 582]), rank 0 
+2025-10-19 10:45:07.401508: predicting imaging_001 
+2025-10-19 10:45:08.217347: imaging_001, shape torch.Size([1, 372, 506, 506]), rank 0 
+2025-10-19 10:49:47.759297: predicting imaging_002 
+2025-10-19 10:49:48.645514: imaging_002, shape torch.Size([1, 323, 595, 595]), rank 0 
+2025-10-19 10:57:25.194036: predicting imaging_003 
+2025-10-19 10:57:25.903156: imaging_003, shape torch.Size([1, 334, 542, 542]), rank 0 
+2025-10-19 11:03:28.515581: predicting imaging_004 
+2025-10-19 11:03:29.116560: imaging_004, shape torch.Size([1, 317, 618, 618]), rank 0 
+2025-10-19 11:09:36.162156: predicting imaging_005 
+2025-10-19 11:09:37.691678: imaging_005, shape torch.Size([1, 516, 618, 618]), rank 0 
+2025-10-19 11:21:49.965522: predicting imaging_006 
+2025-10-19 11:21:50.638520: imaging_006, shape torch.Size([1, 582, 470, 470]), rank 0 
+2025-10-19 11:30:13.143535: predicting imaging_007 
+2025-10-19 11:30:13.583179: imaging_007, shape torch.Size([1, 226, 595, 595]), rank 0 
